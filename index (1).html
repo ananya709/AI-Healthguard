@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Health — AI-Powered Wellness</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-heart">♡</div>
+    <div class="loader-text">Aura Health</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <div class="logo-icon">✦</div>
+    <span>Aura Health</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#analyzer">Analyzer</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#symptoms">Symptoms</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openChat()">AI Chat ✦</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-blob blob3"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">✦ AI-Powered Healthcare</div>
+    <h1 class="hero-title">
+      Your Health,<br>
+      <em>Intelligently</em><br>
+      Protected.
+    </h1>
+    <p class="hero-sub">Early disease detection powered by explainable AI. Understand your risk, track your progress, take action.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollTo('#analyzer')">Analyze My Health</button>
+      <button class="btn-ghost" onclick="scrollTo('#tools')">Explore Tools</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-target="98">0</span><span>%</span><div class="stat-label">Accuracy</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="12">0</span><span>+</span><div class="stat-label">Disease Models</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="50">0</span><span>K+</span><div class="stat-label">Users Protected</div></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="health-card floating">
+      <div class="hc-icon">♥</div>
+      <div class="hc-label">Heart Rate</div>
+      <div class="hc-value">72 <span>bpm</span></div>
+      <div class="hc-bar"><div class="hc-fill" style="width:65%"></div></div>
+    </div>
+    <div class="health-card floating" style="animation-delay:1s">
+      <div class="hc-icon">🧠</div>
+      <div class="hc-label">AI Risk Score</div>
+      <div class="hc-value">Low <span>18%</span></div>
+      <div class="hc-bar green"><div class="hc-fill green" style="width:18%"></div></div>
+    </div>
+    <div class="health-card floating" style="animation-delay:0.5s">
+      <div class="hc-icon">💊</div>
+      <div class="hc-label">Medications</div>
+      <div class="hc-value">3 <span>today</span></div>
+      <div class="hc-bar blue"><div class="hc-fill blue" style="width:75%"></div></div>
+    </div>
+    <div class="ring-visual">
+      <svg viewBox="0 0 200 200" class="ring-svg">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,163,163,0.1)" stroke-width="20"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#ringGrad)" stroke-width="20" stroke-dasharray="502" stroke-dashoffset="150" stroke-linecap="round" transform="rotate(-90 100 100)"/>
+        <defs>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff9a9e"/>
+            <stop offset="100%" stop-color="#fecfef"/>
+          </linearGradient>
+        </defs>
+        <text x="100" y="95" text-anchor="middle" fill="white" font-size="28" font-weight="bold">72%</text>
+        <text x="100" y="115" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Health Score</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="feature-item"><span>✦</span> Explainable AI</div>
+  <div class="feature-item"><span>✦</span> Real-Time Analysis</div>
+  <div class="feature-item"><span>✦</span> Risk Progression Tracking</div>
+  <div class="feature-item"><span>✦</span> Multi-Factor Diagnosis</div>
+  <div class="feature-item"><span>✦</span> HIPAA Compliant</div>
+  <div class="feature-item"><span>✦</span> 24/7 AI Assistant</div>
+</div>
+
+<!-- AI RISK ANALYZER -->
+<section class="section" id="analyzer">
+  <div class="section-header">
+    <div class="section-badge">Core Feature</div>
+    <h2>AI Disease Risk <em>Analyzer</em></h2>
+    <p>Enter your health metrics. Our explainable AI reveals your risk level and the exact factors contributing to it.</p>
+  </div>
+
+  <div class="analyzer-grid">
+    <div class="analyzer-form card-glass">
+      <h3>Your Health Profile</h3>
+      
+      <!-- Personal Info -->
+      <div class="form-group">
+        <label>Age</label>
+        <div class="input-wrap">
+          <input type="number" id="age" placeholder="e.g. 35" min="1" max="120">
+          <span class="input-icon">🎂</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-val="male" onclick="selectToggle(this,'gender')">Male</button>
+          <button class="toggle-btn" data-val="female" onclick="selectToggle(this,'gender')">Female</button>
+          <button class="toggle-btn" data-val="other" onclick="selectToggle(this,'gender')">Other</button>
+        </div>
+        <input type="hidden" id="gender" value="male">
+      </div>
+
+      <!-- Vitals -->
+      <div class="form-section-title">Vitals</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cholesterol <span class="unit">mg/dL</span></label>
+          <input type="number" id="cholesterol" placeholder="200">
+        </div>
+        <div class="form-group">
+          <label>Blood Pressure <span class="unit">mmHg</span></label>
+          <input type="number" id="bp" placeholder="120">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Blood Sugar <span class="unit">mg/dL</span></label>
+          <input type="number" id="sugar" placeholder="90">
+        </div>
+        <div class="form-group">
+          <label>Hemoglobin <span class="unit">g/dL</span></label>
+          <input type="number" id="hb" placeholder="14">
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="form-section-title">Body Metrics</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Weight <span class="unit">kg</span></label>
+          <input type="number" id="weight" placeholder="70">
+        </div>
+        <div class="form-group">
+          <label>Height <span class="unit">m</span></label>
+          <input type="number" id="height" placeholder="1.75" step="0.01">
+        </div>
+      </div>
+
+      <!-- Lifestyle -->
+      <div class="form-section-title">Lifestyle Factors</div>
+      <div class="lifestyle-checks">
+        <label class="check-item">
+          <input type="checkbox" id="smoking"> <span class="check-box"></span>
+          <span>🚬 Smoker</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="alcohol"> <span class="check-box"></span>
+          <span>🍷 Alcohol</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="exercise"> <span class="check-box"></span>
+          <span>🏃 Exercises Regularly</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="family_history"> <span class="check-box"></span>
+          <span>🧬 Family History</span>
+        </label>
+      </div>
+
+      <!-- Medical History -->
+      <div class="form-section-title">Medical History</div>
+      <div class="tag-select" id="medHistory">
+        <span class="tag" onclick="toggleTag(this)">Diabetes</span>
+        <span class="tag" onclick="toggleTag(this)">Hypertension</span>
+        <span class="tag" onclick="toggleTag(this)">Heart Disease</span>
+        <span class="tag" onclick="toggleTag(this)">Asthma</span>
+        <span class="tag" onclick="toggleTag(this)">Kidney Disease</span>
+        <span class="tag" onclick="toggleTag(this)">Obesity</span>
+      </div>
+
+      <button class="btn-primary full" onclick="analyzeRisk()">
+        <span>✦ Analyze My Risk</span>
+      </button>
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="analyzer-results" id="results">
+      <div class="results-empty" id="resultsEmpty">
+        <div class="empty-icon">🔬</div>
+        <p>Fill in your health details and click Analyze to see your personalized AI risk assessment.</p>
+      </div>
+
+      <div class="results-content hidden" id="resultsContent">
+        <!-- Risk Meter -->
+        <div class="risk-card card-glass">
+          <div class="risk-header">
+            <h3>Overall Risk Score</h3>
+            <div class="risk-badge" id="riskBadge">—</div>
+          </div>
+          <div class="risk-meter">
+            <div class="risk-arc">
+              <svg viewBox="0 0 200 110" class="arc-svg">
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="16" stroke-linecap="round"/>
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#arcGrad)" stroke-width="16" stroke-linecap="round" stroke-dasharray="251" id="arcPath" stroke-dashoffset="251"/>
+                <defs>
+                  <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#56ab2f"/>
+                    <stop offset="50%" stop-color="#f7971e"/>
+                    <stop offset="100%" stop-color="#f44336"/>
+                  </linearGradient>
+                </defs>
+                <text x="100" y="90" text-anchor="middle" fill="white" font-size="32" font-weight="bold" id="riskNum">0</text>
+                <text x="100" y="108" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">RISK SCORE</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- XAI Breakdown -->
+        <div class="xai-card card-glass">
+          <h3>✦ Why This Score? <span class="xai-badge">Explainable AI</span></h3>
+          <p class="xai-desc">Each factor's contribution to your risk:</p>
+          <div id="xaiBars"></div>
+        </div>
+
+        <!-- Disease Predictions -->
+        <div class="diseases-card card-glass">
+          <h3>Disease Risk Breakdown</h3>
+          <div id="diseaseList"></div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="reco-card card-glass">
+          <h3>💡 AI Recommendations</h3>
+          <div id="recoList"></div>
+        </div>
+
+        <!-- Risk Timeline -->
+        <div class="timeline-card card-glass">
+          <h3>📈 Risk Progression (Simulated)</h3>
+          <canvas id="riskChart" height="150"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH TOOLS -->
+<section class="section alt-bg" id="tools">
+  <div class="section-header">
+    <div class="section-badge">Health Tools</div>
+    <h2>Quick Health <em>Calculators</em></h2>
+  </div>
+
+  <div class="tools-grid">
+    <!-- BMI -->
+    <div class="tool-card card-glass">
+      <div class="tool-icon">⚖️</div>
+      <h3>BMI Calculator</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmiW" placeholder="70"></div>
+        <div class="form-group"><label>Height (m)</label><input type="number" id="bmiH" placeholder="1.75" step="0.01"></div>
+      </div>
+      <button class="btn-tool" onclick="calcBMI()">Calculate</button>
+      <div class="tool-result hidden" id="bmiResult">
+        <div class="result-value" id="bmiVal">—</div>
+        <div class="result-label" id="bmiLabel">—</div>
+        <div class="bmi-scale">
+          <div class="bmi-seg under">Under</div>
+          <div class="bmi-seg normal">Normal</div>
+          <div class="bmi-seg over">Over</div>
+          <div class="bmi-seg obese">Obese</div>
+          <div class="bmi-needle" id="bmiNeedle"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEART RISK -->
+    <div class="tool-card card-glass">
+      <div class="tool-icon">❤️</div>
+      <h3>Heart Risk Score</h3>
+      <div class="form-group"><label>Age</label><input type="number" id="hrAge" placeholder="45"></div>
+      <div class="form-group"><label>Systolic BP</label><input type="number" id="hrBP" placeholder="130"></div>
+      <div class="form-group"><label>Total Cholesterol</label><input type="number" id="hrChol" placeholder="200"></div>
+      <label class="check-item"><input type="checkbox" id="hrSmoke"><span class="check-box"></span><span>Smoker</span></label>
+      <button class="btn-tool" onclick="calcHeartRisk()">Calculate</button>
+      <div class="tool-result hidden" id="hrResult">
+        <div class="result-value" id="hrVal">—</div>
+        <div class="result-label" id="hrLabel">10-Year Heart Risk</div>
+        <div class="mini-bar"><div class="mini-fill" id="hrBar"></div></div>
+      </div>
+    </div>
+
+    <!-- DIABETES -->
+    <div class="tool-card card-glass">
+      <div class="tool-icon">🩸</div>
+      <h3>Diabetes Risk</h3>
+      <div class="form-group"><label>Fasting Blood Sugar (mg/dL)</label><input type="number" id="diabSugar" placeholder="100"></div>
+      <div class="form-group"><label>HbA1c %</label><input type="number" id="diabHba" placeholder="5.7" step="0.1"></div>
+      <label class="check-item"><input type="checkbox" id="diabFamily"><span class="check-box"></span><span>Family History</span></label>
+      <button class="btn-tool" onclick="calcDiabetes()">Calculate</button>
+      <div class="tool-result hidden" id="diabResult">
+        <div class="result-value" id="diabVal">—</div>
+        <div class="result-label" id="diabLabel">—</div>
+      </div>
+    </div>
+
+    <!-- HEMOGLOBIN -->
+    <div class="tool-card card-glass">
+      <div class="tool-icon">🔬</div>
+      <h3>Hemoglobin Analyzer</h3>
+      <div class="form-group"><label>Hemoglobin (g/dL)</label><input type="number" id="hbVal2" placeholder="14" step="0.1"></div>
+      <div class="form-group"><label>Gender</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-val="male" onclick="selectToggle(this,'hbGender')">Male</button>
+          <button class="toggle-btn" data-val="female" onclick="selectToggle(this,'hbGender')">Female</button>
+        </div>
+        <input type="hidden" id="hbGender" value="male">
+      </div>
+      <button class="btn-tool" onclick="calcHb()">Analyze</button>
+      <div class="tool-result hidden" id="hbResult">
+        <div class="result-value" id="hbVal3">—</div>
+        <div class="result-label" id="hbLabel">—</div>
+      </div>
+    </div>
+
+    <!-- BP Checker -->
+    <div class="tool-card card-glass">
+      <div class="tool-icon">🩺</div>
+      <h3>Blood Pressure Check</h3>
+      <div class="form-group"><label>Systolic (mmHg)</label><input type="number" id="bpSys" placeholder="120"></div>
+      <div class="form-group"><label>Diastolic (mmHg)</label><input type="number" id="bpDia" placeholder="80"></div>
+      <button class="btn-tool" onclick="calcBP()">Check</button>
+      <div class="tool-result hidden" id="bpResult">
+        <div class="result-value" id="bpVal">—</div>
+        <div class="result-label" id="bpLabel">—</div>
+        <div class="bp-categories" id="bpCats"></div>
+      </div>
+    </div>
+
+    <!-- CALORIE -->
+    <div class="tool-card card-glass">
+      <div class="tool-icon">🥗</div>
+      <h3>Daily Calorie Needs</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Weight (kg)</label><input type="number" id="calW" placeholder="70"></div>
+        <div class="form-group"><label>Height (cm)</label><input type="number" id="calH" placeholder="175"></div>
+      </div>
+      <div class="form-group"><label>Age</label><input type="number" id="calAge" placeholder="30"></div>
+      <div class="form-group"><label>Activity</label>
+        <select id="calAct" style="width:100%;padding:10px;border-radius:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;">
+          <option value="1.2">Sedentary</option>
+          <option value="1.375">Light Exercise</option>
+          <option value="1.55">Moderate</option>
+          <option value="1.725">Very Active</option>
+        </select>
+      </div>
+      <button class="btn-tool" onclick="calcCalories()">Calculate</button>
+      <div class="tool-result hidden" id="calResult">
+        <div class="result-value" id="calVal">—</div>
+        <div class="result-label">calories/day recommended</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOM CHECKER -->
+<section class="section" id="symptoms">
+  <div class="section-header">
+    <div class="section-badge">Symptom AI</div>
+    <h2>AI Symptom <em>Checker</em></h2>
+    <p>Select or type your symptoms. Our AI identifies possible conditions and urgency level.</p>
+  </div>
+
+  <div class="symptom-grid">
+    <div class="symptom-selector card-glass">
+      <h3>Select Symptoms</h3>
+      <div class="symptom-tags" id="symptomTags">
+        <span class="stag" onclick="toggleSymptom(this,'Fever')">🌡 Fever</span>
+        <span class="stag" onclick="toggleSymptom(this,'Headache')">🤕 Headache</span>
+        <span class="stag" onclick="toggleSymptom(this,'Chest Pain')">💔 Chest Pain</span>
+        <span class="stag" onclick="toggleSymptom(this,'Shortness of Breath')">😮‍💨 Breath Shortness</span>
+        <span class="stag" onclick="toggleSymptom(this,'Fatigue')">😴 Fatigue</span>
+        <span class="stag" onclick="toggleSymptom(this,'Dizziness')">💫 Dizziness</span>
+        <span class="stag" onclick="toggleSymptom(this,'Nausea')">🤢 Nausea</span>
+        <span class="stag" onclick="toggleSymptom(this,'Cough')">🤧 Cough</span>
+        <span class="stag" onclick="toggleSymptom(this,'Joint Pain')">🦴 Joint Pain</span>
+        <span class="stag" onclick="toggleSymptom(this,'Abdominal Pain')">🫁 Abdominal Pain</span>
+        <span class="stag" onclick="toggleSymptom(this,'Vision Changes')">👁 Vision Changes</span>
+        <span class="stag" onclick="toggleSymptom(this,'Memory Issues')">🧠 Memory Issues</span>
+        <span class="stag" onclick="toggleSymptom(this,'Skin Rash')">🌸 Skin Rash</span>
+        <span class="stag" onclick="toggleSymptom(this,'Weight Loss')">⚡ Weight Loss</span>
+      </div>
+
+      <div class="or-divider">or type below</div>
+      <textarea id="symptomText" placeholder="Describe your symptoms in detail..." rows="3"></textarea>
+
+      <div class="form-group" style="margin-top:15px;">
+        <label>Duration</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-val="1day" onclick="selectToggle(this,'duration')">1 Day</button>
+          <button class="toggle-btn" data-val="week" onclick="selectToggle(this,'duration')">1 Week</button>
+          <button class="toggle-btn" data-val="month" onclick="selectToggle(this,'duration')">1 Month</button>
+          <button class="toggle-btn" data-val="chronic" onclick="selectToggle(this,'duration')">Chronic</button>
+        </div>
+        <input type="hidden" id="duration" value="1day">
+      </div>
+
+      <button class="btn-primary full" onclick="checkSymptoms()">✦ Analyze Symptoms</button>
+    </div>
+
+    <div class="symptom-result card-glass" id="symptomResult">
+      <div class="results-empty">
+        <div class="empty-icon">🩺</div>
+        <p>Select symptoms to see AI analysis</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section alt-bg" id="dashboard">
+  <div class="section-header">
+    <div class="section-badge">Dashboard</div>
+    <h2>Health <em>Dashboard</em></h2>
+    <p>Track your health metrics over time and see your progress.</p>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="dash-card card-glass">
+      <h3>Weekly Health Trend</h3>
+      <canvas id="weekChart" height="180"></canvas>
+    </div>
+    <div class="dash-card card-glass">
+      <h3>Vitals Overview</h3>
+      <canvas id="vitalsChart" height="180"></canvas>
+    </div>
+    <div class="dash-card card-glass">
+      <h3>Risk History</h3>
+      <canvas id="riskHistChart" height="180"></canvas>
+    </div>
+    <div class="dash-metrics card-glass">
+      <h3>Today's Metrics</h3>
+      <div class="metric-row">
+        <div class="metric"><div class="m-icon">❤️</div><div class="m-val">72</div><div class="m-lbl">Heart Rate</div></div>
+        <div class="metric"><div class="m-icon">🩸</div><div class="m-val">98%</div><div class="m-lbl">O2 Sat</div></div>
+        <div class="metric"><div class="m-icon">💧</div><div class="m-val">7.4</div><div class="m-lbl">pH Level</div></div>
+        <div class="metric"><div class="m-icon">🌡</div><div class="m-val">98.6°</div><div class="m-lbl">Temp</div></div>
+        <div class="metric"><div class="m-icon">⚡</div><div class="m-val">2100</div><div class="m-lbl">Calories</div></div>
+        <div class="metric"><div class="m-icon">💤</div><div class="m-val">7.5h</div><div class="m-lbl">Sleep</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEARBY HOSPITALS -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-badge">Find Care</div>
+    <h2>Nearby <em>Hospitals</em></h2>
+  </div>
+  <div class="map-container">
+    <iframe
+      width="100%" height="450"
+      style="border:0;border-radius:20px;"
+      loading="lazy"
+      src="https://maps.google.com/maps?q=hospital+near+me&output=embed"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section class="section alt-bg">
+  <div class="section-header">
+    <div class="section-badge">Book Now</div>
+    <h2>Schedule an <em>Appointment</em></h2>
+  </div>
+  <div class="appt-form card-glass" style="max-width:600px;margin:0 auto;">
+    <div class="form-row">
+      <div class="form-group"><label>Full Name</label><input type="text" id="apptName" placeholder="Your name"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="apptEmail" placeholder="email@example.com"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Phone</label><input type="tel" id="apptPhone" placeholder="+91 98765 43210"></div>
+      <div class="form-group"><label>Date</label><input type="date" id="apptDate"></div>
+    </div>
+    <div class="form-group">
+      <label>Department</label>
+      <select id="apptDept" style="width:100%;padding:12px;border-radius:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;">
+        <option>Cardiology</option>
+        <option>Neurology</option>
+        <option>Endocrinology</option>
+        <option>General Medicine</option>
+        <option>Pulmonology</option>
+        <option>Nephrology</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Notes</label><textarea id="apptNotes" placeholder="Any specific concerns..." rows="3"></textarea></div>
+    <button class="btn-primary full" onclick="bookAppointment()">Book Appointment ✦</button>
+    <div id="apptMsg" class="appt-msg hidden"></div>
+  </div>
+</section>
+
+<!-- THEME SWITCHER -->
+<div class="theme-switcher">
+  <div class="theme-switcher-label">Theme</div>
+  <div class="theme-dot active" data-t="aurora"  data-label="Aurora"  onclick="setTheme('aurora',this)"></div>
+  <div class="theme-dot"        data-t="ocean"   data-label="Ocean"   onclick="setTheme('ocean',this)"></div>
+  <div class="theme-dot"        data-t="sunset"  data-label="Sunset"  onclick="setTheme('sunset',this)"></div>
+  <div class="theme-dot"        data-t="forest"  data-label="Forest"  onclick="setTheme('forest',this)"></div>
+  <div class="theme-dot"        data-t="galaxy"  data-label="Galaxy"  onclick="setTheme('galaxy',this)"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">✦ Aura Health</div>
+  <p>AI-Powered Preventive Healthcare Platform</p>
+  <p style="opacity:0.4;font-size:12px;margin-top:20px;">⚠️ For informational purposes only. Always consult a qualified healthcare professional.</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<!-- AI CHAT -->
+<div class="chatbot-fab" id="chatFab" onclick="openChat()">
+  <span class="fab-icon">✦</span>
+  <span class="fab-label">AI Chat</span>
+</div>
+
+<div class="chatbot-panel" id="chatPanel">
+  <div class="chat-header">
+    <div class="chat-avatar">✦</div>
+    <div>
+      <div class="chat-name">Aura AI</div>
+      <div class="chat-status">● Online</div>
+    </div>
+    <button class="chat-close" onclick="closeChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg ai">
+      <div class="msg-bubble">Hi! I'm Aura AI 👋 Ask me about your health, symptoms, medications, or diet. I'm here to help!</div>
+    </div>
+  </div>
+  <div class="chat-quick">
+    <button onclick="quickMsg('What foods lower cholesterol?')">Cholesterol diet</button>
+    <button onclick="quickMsg('How to lower blood pressure?')">Lower BP</button>
+    <button onclick="quickMsg('Signs of diabetes?')">Diabetes signs</button>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Ask Aura AI..." onkeypress="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
